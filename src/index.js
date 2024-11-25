@@ -1,13 +1,76 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { createBrowserRouter, RouterProvider } from "react-router-dom"; // Correct import
+import reportWebVitals from "./reportWebVitals";
+import Register from "./components/register";
+import Login from "./components/login";
+import Home from "./components/home";
+import Transactions from "./components/transactions";
+import Users from "./components/users";
+import Profile from "./components/profile";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const queryClient = new QueryClient();
+
+const router = createBrowserRouter([
+  {
+    path: "/login",
+    element: (
+      <div>
+        <Login />,
+      </div>
+    ),
+  },
+  {
+    path: "/register",
+    element: (
+      <div>
+        <Register />,
+      </div>
+    ),
+  },
+  {
+    path: "/home",
+    element: (
+      <div>
+        <Home />,
+      </div>
+    ),
+  },
+  {
+    path: "/transactions",
+    element: (
+      <div>
+        <Transactions />,
+      </div>
+    ),
+  },
+  {
+    path: "/users",
+    element: (
+      <div>
+        <Users />,
+      </div>
+    ),
+  },
+  {
+    path: "/profile",
+    element: (
+      <div>
+        <Profile />,
+      </div>
+    ),
+  },
+]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </React.StrictMode>
 );
 
