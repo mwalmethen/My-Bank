@@ -11,10 +11,20 @@ import Transactions from "./components/transactions";
 import Users from "./components/users";
 import Profile from "./components/profile";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { UserProvider } from "./Context/userContext";
 
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <div>
+        <Register />,
+      </div>
+    ),
+  },
+
   {
     path: "/login",
     element: (
@@ -23,14 +33,7 @@ const router = createBrowserRouter([
       </div>
     ),
   },
-  {
-    path: "/register",
-    element: (
-      <div>
-        <Register />,
-      </div>
-    ),
-  },
+
   {
     path: "/home",
     element: (
@@ -69,7 +72,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <UserProvider>
+        <RouterProvider router={router} />
+      </UserProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );

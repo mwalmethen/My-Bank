@@ -4,7 +4,8 @@ import { register } from "../API/auth";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router";
 import { useState } from "react";
-
+import img1 from "../Pics/credit-card2790.jpg";
+import img2 from "../Pics/bank-nav-logo.jpg";
 const Register = () => {
   // Manage username and password state
   const [userInfo, setUserInfo] = useState({
@@ -37,11 +38,11 @@ const Register = () => {
   return (
     <div className="main-div">
       <div className="logo-text-main-2">
-        <img className="Nav-logo" src="/bank-nav-logo.jpg" />
+        <img className="Nav-logo" src={img2} />
         <h3 className="nav-text">Unity vault</h3>
       </div>
       <div className="register-image-div">
-        <img className="register-image" src="/credit-card2790.jpg" />
+        <img className="register-image" src={img1} />
       </div>
       <h2 className="h2">Register your account</h2>
       <h4 className="h2">
@@ -83,9 +84,6 @@ const Register = () => {
           </button>
         </div>
       </form>
-      <Link className="link-login" to="/home">
-        <button>Test to home page!</button>
-      </Link>
     </div>
   );
 };

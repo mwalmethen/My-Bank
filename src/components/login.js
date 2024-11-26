@@ -4,6 +4,10 @@ import { login } from "../API/auth";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router";
 import { useState } from "react";
+import UserContext from "../Context/userContext";
+import { useContext } from "react";
+import img1 from "../Pics/credit-card2790.jpg";
+import img2 from "../Pics/bank-nav-logo.jpg";
 
 const Login = () => {
   // Manage username and password state
@@ -12,11 +16,13 @@ const Login = () => {
     password: "",
   });
 
+  const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
   const { mutate } = useMutation({
     mutationKey: ["login"],
     mutationFn: () => login(userInfo),
-    onSuccess: () => {
+    onSuccess: (data) => {
+      setUser(data);
       navigate("/home");
     },
   });
@@ -39,15 +45,15 @@ const Login = () => {
   return (
     <div className="main-div">
       <div className="logo-text-main-2">
-        <img className="Nav-logo" src="/bank-nav-logo.jpg" />
+        <img className="Nav-logo" src={img2} />
         <h3 className="nav-text">Unity vault</h3>
       </div>
       <div className="register-image-div">
-        <img className="register-image" src="/credit-card2790.jpg" />
+        <img className="register-image" src={img1} />
       </div>
       <h2 className="h2">Log in to your account</h2>
       <h4 className="h2">
-        if you do not have an account, <Link to="/register">register here</Link>
+        if you do not have an account, <Link to="/">register here</Link>
       </h4>
       <form className="user-data-form" onSubmit={handleFormSubmit}>
         <div className="mb-4">

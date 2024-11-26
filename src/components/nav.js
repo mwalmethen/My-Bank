@@ -1,8 +1,28 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { deleteToken } from "../API/storage";
+import UserContext from "../Context/userContext";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Nav = () => {
+  const { setUser } = useContext(UserContext); // Access the setUser function from context
+  const navigate = useNavigate(); // For navigating after logout
+
+  const logout = () => {
+    // Clear the token from localStorage
+    deleteToken();
+
+    // Also remove user data from localStorage (if stored)
+    localStorage.removeItem("user");
+
+    // Clear user context (if using context)
+    setUser(null);
+
+    // Redirect to the login page
+    navigate("/login");
+  };
   return (
     <div className="Nav-container">
       <div className="logo-text-nav">
@@ -59,9 +79,9 @@ const Nav = () => {
             Profile
           </NavLink>
         </h2>
-        <Link className="nav-link-logout" to="/register">
-          <button className="logout-button">Logout</button>
-        </Link>
+        <button className="nav-link-logout" onClick={logout}>
+          Logout
+        </button>
       </div>
     </div>
   );

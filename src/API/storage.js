@@ -17,8 +17,8 @@ const checkToken = () => {
   const token = getToken();
   if (token) {
     const decode = jwtDecode(token);
-    const cureentTime = Date.now() / 1000;
-    if (decode.exp < cureentTime) {
+    const currentTime = Date.now() / 1000;
+    if (decode.exp < currentTime) {
       deleteToken();
       return false;
     }

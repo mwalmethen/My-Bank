@@ -18,6 +18,12 @@
     opacity: 1;
   }
 }
+.trans-withdraw-deposit-div {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  right: 14%;
+}
 .main-div {
   display: flex;
   justify-content: center;
@@ -73,7 +79,7 @@
 .nav-text {
   margin-top: 29px;
 }
-.logout-button {
+.nav-link-logout {
   background-color: orange;
   color: white;
   border-radius: 15px;
@@ -85,10 +91,11 @@
   cursor: pointer;
   margin-right: 13px;
 }
-.logout-button:hover {
+
+.nav-link-logout:hover {
   opacity: 0.8;
 }
-.logout-button:active {
+.nav-link-logout:active {
   opacity: 0.5;
 }
 .nav-link-logout {
@@ -211,9 +218,9 @@
   position: relative;
   left: 13%;
 }
-.submit-button-trans {
+.deposit-button-trans {
   border: none;
-  background-color: orange;
+  background-color: green;
   text-align: center;
   font-weight: bold;
   width: 100px;
@@ -224,25 +231,45 @@
   left: 40%;
   cursor: pointer;
 }
-.submit-button-trans:hover,
-.transfer-button-user:hover {
+.withdraw-button-trans {
+  border: none;
+  background-color: red;
+  text-align: center;
+  font-weight: bold;
+  width: 100px;
+  height: 50px;
+  border-radius: 12px;
+  margin-top: 12px;
+  position: relative;
+  left: 40%;
+  cursor: pointer;
+}
+.deposit-button-trans:hover,
+.withdraw-button-trans:hover {
   opacity: 0.8;
 }
 .submit-button-trans:active,
 .transfer-button-user:active {
   opacity: 0.5;
 }
-.div-user {
-  border: none;
-  background: white;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
-  width: 400px;
-  height: 250px;
+.users-div {
   display: flex;
-  flex-direction: column;
-  border-radius: 20px;
+  justify-content: center;
+}
+.div-user {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between each user item */
+  justify-content: center; /* Align items to the center */
+}
+
+.div-user > div {
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 200px; /* Adjust width of each user card */
   text-align: center;
-  margin: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .transfer-button-user {
   border: none;
