@@ -13,13 +13,11 @@ const Home = () => {
     mutationKey: ["deposit"],
     mutationFn: () => deposit(amount),
     onSuccess: (data) => {
-      // Assuming the API responds with the updated balance
       const updatedBalance = data?.balance || user.balance + parseFloat(amount); // fallback if no balance in response
       setUser((prev) => ({
         ...prev,
         balance: updatedBalance,
       }));
-      // Update balance in localStorage
       localStorage.setItem("balance", updatedBalance);
     },
     onError: (error) => {
@@ -88,7 +86,7 @@ const Home = () => {
             onChange={(e) => setAmount(e.target.value)}
             placeholder="Amount"
           />
-          <div className="trans-withdraw-deposit-div">
+          <div className="trans-withdraw-deposit-div1">
             <button
               className="deposit-button-trans"
               onClick={() => {

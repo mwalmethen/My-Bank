@@ -9,7 +9,7 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      {children} {/* Render the children passed to this provider */}
+      {children}
     </UserContext.Provider>
   );
 };

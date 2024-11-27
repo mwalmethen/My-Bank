@@ -35,8 +35,8 @@ const withdraw = async (amount) => {
 };
 
 const getProfile = async () => {
-  const data = await instance.get("/mini-project/api/auth/me");
-  return data;
+  const response = await instance.get("/mini-project/api/auth/me");
+  return response;
 };
 
 async function getAllUsers() {
@@ -44,5 +44,22 @@ async function getAllUsers() {
   console.log(response);
   return response;
 }
+const getTransactions = async () => {
+  try {
+    const data = await instance.get("/mini-project/api/transactions/my");
+    return data;
+  } catch (error) {
+    console.error("Error fetching transactions:", error);
+    throw error; // Rethrow to handle it in the component
+  }
+};
 
-export { register, login, deposit, withdraw, getAllUsers, getProfile };
+export {
+  register,
+  login,
+  deposit,
+  withdraw,
+  getAllUsers,
+  getProfile,
+  getTransactions,
+};

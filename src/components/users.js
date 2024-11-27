@@ -9,26 +9,27 @@ const Users = () => {
     queryFn: getAllUsers, // Query function
   });
 
+  const users = data?.map((userData) => (
+    <div className="div-user">
+      <div>
+        <img
+          src={
+            "https://react-bank-project.eapi.joincoded.com/" + userData.image
+          } // Display user image, fallback to default
+          alt={`${userData?.name}'s profile`}
+          className="user-avatar"
+        />
+        <h3>{userData?.username}</h3>
+        <h4>Balance: {userData?.balance} KWD</h4>
+        <button className="transfer-button-user">Transfer</button>
+      </div>
+    </div>
+  ));
   return (
     <div>
       <Nav />
 
-      <div className="users-div">
-        <div className="div-user">
-          {data?.map((user) => (
-            <div key={user.id}>
-              <img
-                src={user.image || "/default-avatar.png"} // Display user image, fallback to default
-                alt={`${user.name}'s profile`}
-                className="user-avatar"
-              />
-              <h3>{user.name}</h3>
-              <h4>Balance: {user.balance?.toFixed(2) || "0.00"} KWD</h4>
-              <button className="transfer-button-user">Transfer</button>
-            </div>
-          ))}
-        </div>
-      </div>
+      <div className="users-div">{users}</div>
     </div>
   );
 };

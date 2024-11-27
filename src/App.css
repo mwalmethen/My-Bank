@@ -20,9 +20,17 @@
 }
 .trans-withdraw-deposit-div {
   display: flex;
-  gap: 10px;
-  position: relative;
-  right: 14%;
+  justify-content: center;
+  margin-top: 30px;
+}
+.trans-withdraw-deposit-div1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.form-select {
+  width: 200px;
+  height: 30px;
 }
 .main-div {
   display: flex;
@@ -226,9 +234,9 @@
   width: 100px;
   height: 50px;
   border-radius: 12px;
-  margin-top: 12px;
+  margin-bottom: 10px;
   position: relative;
-  left: 40%;
+  left: 1%;
   cursor: pointer;
 }
 .withdraw-button-trans {
@@ -239,22 +247,36 @@
   width: 100px;
   height: 50px;
   border-radius: 12px;
-  margin-top: 12px;
   position: relative;
-  left: 40%;
+  left: 2%;
   cursor: pointer;
 }
+.h3-trans {
+  text-align: center;
+}
 .deposit-button-trans:hover,
-.withdraw-button-trans:hover {
+.withdraw-button-trans:hover,
+.save-button:hover,
+.search-trans-button:hover,
+.button-filter:hover {
   opacity: 0.8;
 }
 .submit-button-trans:active,
-.transfer-button-user:active {
+.transfer-button-user:active,
+.save-button:active,
+.search-trans-button:active,
+.button-filter:active {
   opacity: 0.5;
 }
 .users-div {
   display: flex;
+  flex-wrap: wrap;
+
   justify-content: center;
+}
+.user-avatar {
+  width: 100px;
+  height: 100px;
 }
 .div-user {
   display: flex;
@@ -271,6 +293,33 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+.picUpload {
+  text-align: center;
+  margin-top: 25px;
+}
+.input-image {
+  position: relative;
+  left: 15%;
+  margin-top: 15px;
+}
+.save-button {
+  border: none;
+  background-color: orange;
+  text-align: center;
+  font-weight: bold;
+  width: 100px;
+  height: 50px;
+  border-radius: 12px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+.my-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  object-fit: cover;
+  margin-top: 20px;
+}
 .transfer-button-user {
   border: none;
   background-color: orange;
@@ -281,6 +330,11 @@
   border-radius: 12px;
   margin-top: 12px;
   cursor: pointer;
+}
+.search-bar-trans-div-type {
+  position: relative;
+  left: 15.5%;
+  margin-top: 20px;
 }
 .div-profile {
   border: none;
@@ -295,4 +349,51 @@
   margin: 30px;
   position: relative;
   right: -40%;
+}
+.search-bar-trans-div {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.search-trans {
+  width: 1000px;
+  height: 50px;
+  text-align: center;
+  border-radius: 15px;
+  border-width: 0.5px;
+  border-color: gray;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+.search-trans-button {
+  border: none;
+  background-color: orange;
+  text-align: center;
+  font-weight: bold;
+  width: 80px;
+  height: 50px;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  top: 20%;
+}
+.filtered-div-trans {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 30px;
+  height: 20vh;
+  position: relative;
+  left: -2.5%;
+}
+.button-filter {
+  border: none;
+  background-color: orange;
+  text-align: center;
+  font-weight: bold;
+  width: 80px;
+  height: 50px;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  bottom: -2%;
 }

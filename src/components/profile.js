@@ -2,18 +2,15 @@ import { React, useContext, useEffect } from "react";
 import Nav from "./nav";
 import UserContext from "../Context/userContext";
 import { getProfile } from "../API/auth";
+import myImg from "../Pics/myImage.jpg";
+import { useQuery } from "@tanstack/react-query";
 
 const Profile = () => {
-  const { user, setUser } = useContext(UserContext);
-
-  useEffect(() => {
-    const fetchProfile = async () => {
-      const user = await getProfile();
-      setUser(user); // Set the user context after fetching the profile
-    };
-
-    fetchProfile();
-  }, [setUser]);
+  const { data } = useQuery({
+    queryKey: ["profiles"],
+    queryFn: getProfile,
+  });
+  console.log(data);
 
   return (
     <div>
@@ -21,10 +18,21 @@ const Profile = () => {
 
       <div className="div-profile">
         <div className="profile-info">
-          <h3>Welcome, {user?.name || "User"}!</h3>
+          <img className="my-image" src={myImg} />
+          <h3>Welcome, {data?.username}!</h3>
           <h4>
-            Balance: {user?.balance?.toFixed(2)}
-            <span style={{ color: "green" }}>KWD</span>
+            Your balance is: {data?.balance}
+            <span style={{ color: "green" }}> KWD</span>
+            <div className="picUpload">
+              <label htmlFor="profile-picture">Upload Profile Picture:</label>
+              <input
+                className="input-image"
+                type="file"
+                accept="image/*"
+                id="profile-picture"
+              />
+              <button className="save-button">Save</button>
+            </div>
           </h4>
         </div>
       </div>

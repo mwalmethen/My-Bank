@@ -5,6 +5,7 @@ import { deleteToken } from "../API/storage";
 import UserContext from "../Context/userContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import img from "../Pics/bank-nav-logo.jpg";
 
 const Nav = () => {
   const { setUser } = useContext(UserContext); // Access the setUser function from context
@@ -26,7 +27,7 @@ const Nav = () => {
   return (
     <div className="Nav-container">
       <div className="logo-text-nav">
-        <img className="Nav-logo" src="/bank-nav-logo.jpg" />
+        <img className="Nav-logo" src={img} />
         <h3 className="nav-text">Unity vault</h3>
       </div>
       <div className="Nav-home-product">
